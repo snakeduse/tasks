@@ -38,6 +38,6 @@ namespace Tasks.Models
         /// <summary>
         /// Дата обновления задачи
         /// </summary>
-        public DateTime UpdatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
     }
 }
