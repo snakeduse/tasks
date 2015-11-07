@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html ng-app="tasksApp">
+<head>
+    <meta charset="utf-8" />
+    <title>Tasks</title>
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-resource.js"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+    <div ng-controller="tasksController"> 
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Title</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="task in Tasks">
+                    <td>{{task.Id}}</td>
+                    <td>{{task.Title}}</td>
+                </tr>
+            </tbody>
+        </table>
+ 
+    </div>
+</body>
+</html>
