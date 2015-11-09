@@ -2,7 +2,11 @@
     'use strict';
 
     angular
-        .module('tasksApp')
+        .module('tasksApp').config(function ($mdThemingProvider) {
+            $mdThemingProvider.theme('default')
+              .primaryPalette('light-green')
+              .accentPalette('orange');
+        })
         .controller('tasksController', tasksController);
 
     tasksController.$inject = ['$scope', 'Tasks']; 
