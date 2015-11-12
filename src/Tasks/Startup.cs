@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Http;
 using Microsoft.Framework.DependencyInjection;
+using Tasks.Infrastructure;
+using Microsoft.Data.Entity;
 
 namespace Tasks
 {
@@ -14,6 +16,11 @@ namespace Tasks
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            var connection = @"data source=;initial catalog=Tasks;persist security info=True;user id=;password=;multipleactiveresultsets=True";
+            services.AddEntityFramework()
+                .AddSqlServer()
+                .AddDbContext<TasksContext>(options => options.UseSqlServer(connection));
         }
 
         public void Configure(IApplicationBuilder app)
