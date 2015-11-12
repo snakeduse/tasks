@@ -9,26 +9,13 @@
 
     function tasksController($scope, Tasks, $mdDialog) {
         $scope.Tasks = Tasks.query();
-
-        var DialogController = function ($scope, $mdDialog) {
-            $scope.hide = function () {
-                $mdDialog.hide();
-            };
-            $scope.cancel = function () {
-                $mdDialog.cancel();
-            };
-            $scope.answer = function (answer) {
-                $mdDialog.hide(answer);
-            };
-        };
-
         $scope.showAlert = function (ev) {
             $mdDialog.show({
-                //controller: DialogController,
+                controller: DialogController,
                 templateUrl: 'create_dialog.tmpl.html',
                 parent: angular.element(document.body),
                 targetEvent: ev,
-                clickOutsideToClose: true
+                clickOutsideToClose: false
             })
             .then(function (answer) {
                 $scope.status = 'You said the information was "' + answer + '".';
@@ -36,5 +23,16 @@
                 $scope.status = 'You cancelled the dialog.';
             });
         };        
+    }
+
+    DialogController.$inject = ['$scope', 'Tasks', '$mdDialog'];
+
+    function DialogController($scope, Tasks, $mdDialog) {
+        $scope.hide = function () {
+            $mdDialog.hide();
+        };
+        $scope.cancel = function () {
+            $mdDialog.cancel();
+        };
     }
 })();
