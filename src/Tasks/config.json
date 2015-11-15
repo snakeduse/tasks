@@ -1,7 +1,0 @@
-﻿{
-  "Data": {
-    "DefaultConnection": {
-      "ConnectionString": "data source=217.10.40.136;initial catalog=Tasks;persist security info=True;user id=Outer;password=Outer2012;multipleactiveresultsets=True"
-    }
-  }
-}
