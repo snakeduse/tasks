@@ -21,21 +21,30 @@
 <body>
     <div ng-controller="tasksController">
 
-        <md-card>
+        <md-card>            
             <md-card-content>
                 <h2 class="md-title">Title</h2>
                 <md-list>
                     <md-list-item ng-repeat="task in Tasks" class="md-no-sticky">
                         <p class="md-primary"> {{ task.Title }} </p>
-                        <md-checkbox class="md-secondary"></md-checkbox>
-
-                        <md-divider></md-divider>
+                        <div>
+                            <span class="md-body-1">0 / </span>
+                            <span class="md-body-2">8</span>
+                            <md-button class="md-icon-button">
+                                <md-icon>exposure_plus_1</md-icon>
+                                </md-button>
+                            <md-button class="md-icon-button">
+                                <md-icon>done</md-icon>
+                                </md-button>
+                                <md-divider></md-divider>
+</div>
                     </md-list-item>
                 </md-list>
             </md-card-content>
             <md-card-actions layout="row" layout-align="end center">
                 <md-button>Add task</md-button>
                 <md-button>In archive</md-button>
+
             </md-card-actions>
         </md-card>     
        
