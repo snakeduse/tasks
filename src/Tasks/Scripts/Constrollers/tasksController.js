@@ -8,6 +8,7 @@
     tasksController.$inject = ['$scope', 'Tasks', '$mdDialog'];
 
     function tasksController($scope, Tasks, $mdDialog) {
+
         $scope.Tasks = Tasks.query();
         $scope.showAlert = function (ev) {
             $mdDialog.show({
@@ -22,7 +23,11 @@
             }, function () {
                 $scope.status = 'You cancelled the dialog.';
             });
-        };        
+        };
+
+        $scope.incrementIteration = function (task) {
+            task.PomodoroExecuted++;
+        }
     }
 
     DialogController.$inject = ['$scope', 'Tasks', '$mdDialog'];

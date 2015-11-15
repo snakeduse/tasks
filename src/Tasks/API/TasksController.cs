@@ -16,8 +16,8 @@ namespace Tasks.API
         public IEnumerable<Models.Task> Get()
         {
             return new List<Models.Task> {
-                new Models.Task { Id = 1, CreatedAt = DateTime.Now, Title = "Задача 1" },
-                new Models.Task { Id = 2, CreatedAt = DateTime.Now, Title = "Задача 2" }
+                new Models.Task { Id = 1, CreatedAt = DateTime.Now, Title = "Задача 1", PomodoroCount = 3, PomodoroExecuted = 1 },
+                new Models.Task { Id = 2, CreatedAt = DateTime.Now, Title = "Задача 2", PomodoroCount = 5 }
             };
         }
     }
