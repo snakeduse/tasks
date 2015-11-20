@@ -5,14 +5,12 @@
   "dependencies": {
     "Microsoft.AspNet.Server.IIS": "1.0.0-beta5",
     "Microsoft.AspNet.Server.WebListener": "1.0.0-beta5",
-    "Microsoft.AspNet.Mvc": "6.0.0-beta5",
-    "EntityFramework.SqlServer": "7.0.0-beta8",
-    "EntityFramework.Commands": "7.0.0-beta8"
+    "Microsoft.AspNet.Mvc": "6.0.0-beta5"
+    
   },
 
   "commands": {
-    "web": "Microsoft.AspNet.Hosting --config hosting.ini",
-    "ef": "EntityFramework.Commands"
+    "web": "Microsoft.AspNet.Hosting --config hosting.ini"
   },
 
   "frameworks": {

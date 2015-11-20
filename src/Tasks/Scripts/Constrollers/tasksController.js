@@ -28,6 +28,26 @@
         $scope.incrementIteration = function (task) {
             task.PomodoroExecuted++;
         }
+
+        $scope.addNewTask = (function (ev) {
+            $mdDialog.show({
+                controller: CreateTaskController,
+                templateUrl: 'create_task_dialog.tmpl.html',
+                parent: angular.element(document.body),
+                targetEvent: ev,
+                clickOutsideToClose: false
+            })
+            .then(function (newTask) {
+                newTask.PomodoroExecuted = 0;
+                $scope.Tasks.push(newTask);
+
+            }, function () {
+                // cancel
+            });
+        });
+            /*(function () {
+            $scope.Tasks.push({ Title: "New task", PomodoroCount: 0, PomodoroExecuted: 0, IsEdit: true});
+        });*/
     }
 
     DialogController.$inject = ['$scope', 'Tasks', '$mdDialog'];
@@ -39,5 +59,16 @@
         $scope.cancel = function () {
             $mdDialog.cancel();
         };
+    }
+
+    CreateTaskController.$inject = ['$scope', 'Tasks', '$mdDialog'];
+
+    function CreateTaskController($scope, Tasks, $mdDialog) {
+        $scope.hide = function (newTask) {            
+            $mdDialog.hide(newTask);
+        };
+        $scope.cancel = function () {
+            $mdDialog.cancel();
+        };        
     }
 })();

@@ -26,7 +26,13 @@
                 <h2 class="md-title">Title</h2>
                 <md-list>
                     <md-list-item ng-repeat="task in Tasks" class="md-no-sticky">
-                        <p class="md-primary"> {{ task.Title }} </p>
+                        <p class="md-primary" ng-if="!task.IsEdit"> {{ task.Title }} </p>
+                        <div class="md-primary">
+                            <md-input-container ng-if="task.IsEdit" md-no-float class="md-block">
+                                <label>Description</label>
+                                <input ng-model="task.Title" type="text" required>
+                            </md-input-container>
+                        </div>
                         <div>
                             <span ng-class="{'md-warn':task.PomodoroExecuted > task.PomodoroCount}">{{ task.PomodoroExecuted }} / {{ task.PomodoroCount }}</span>
                             <md-button class="md-icon-button" ng-click="incrementIteration(task)">
@@ -41,7 +47,7 @@
                 </md-list>
             </md-card-content>
             <md-card-actions layout="row" layout-align="end center">
-                <md-button>Add task</md-button>
+                <md-button ng-click="addNewTask()">Add task</md-button>
                 <md-button>In archive</md-button>
 
             </md-card-actions>
